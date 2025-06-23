@@ -6,6 +6,8 @@ vim.g.maplocalleader = " "
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
+
+-- This makes indentation smaller, which I vastly prefer.
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 
@@ -26,13 +28,10 @@ vim.o.mouse = "a"
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
 
--- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
-vim.schedule(function()
-	vim.o.clipboard = "unnamedplus"
-end)
+-- NOTE: This syncs the os and vim clipboard, I currently like them seperate as the it's really easy for me to add blank content to the buffer.
+-- vim.schedule(function()
+-- vim.o.clipboard = "unnamedplus"
+-- end)
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -922,6 +921,7 @@ require("lazy").setup({
 	-- require 'kickstart.plugins.lint',
 	require("kickstart.plugins.autopairs"),
 	require("kickstart.plugins.neo-tree"),
+	vim.keymap.set("n", "<leader>ft", "<cmd>Neotree toggle<CR>", { desc = "Toggle [F]ile [T]ree" }),
 	-- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
 	-- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
