@@ -1,2 +1,3 @@
-# configs
-A location to store all of the necessary configs for my various stuff.
+# Nvim Configuration
+
+A github repo to share my nvim configuration across multiple devices, including work and personal machines.
